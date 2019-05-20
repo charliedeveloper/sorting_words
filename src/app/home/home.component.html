@@ -1,0 +1,19 @@
+
+<form [formGroup]="messageForm">
+
+  <label>
+    Input:
+    <input formControlName="message" >
+    <div *ngIf="messageForm.controls.message.errors" class="error">
+      <div *ngIf="messageForm.controls.message.errors.required">An input is required</div>
+    </div>
+  </label>
+  <div *ngIf="isValidEntry">
+    <div *ngIf="performSort">
+      <ul class="displayWords" [ngStyle]="{'height': flexHeight + 'px'}">
+        <li *ngFor="let word of sortedWords">{{word}}</li>
+      </ul>
+    </div>
+  </div>
+</form>
+
